@@ -2,6 +2,7 @@
 created by Nagaj at 10/06/2021
 """
 import os
+
 NOTIFICATION = "MAIL SENT TO '{name}'"
 
 
