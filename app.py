@@ -16,7 +16,7 @@ def main():
 
     for recipient in recipients:
         body = letter.replace(PLACEHOLDER, recipient)
-        mail = Mail(recipient=recipient, content=body, saved_to=SENDING_MAIL_PATH)
+        mail = Mail(recipient=recipient, content=body, save_to=SENDING_MAIL_PATH)
         mail.send()
 
 

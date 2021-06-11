@@ -13,6 +13,9 @@ class File:
     def __getitem__(self, item):
         return self.lines[item]
 
+    def __contains__(self, item):
+        return item in self.content
+
     def __eq__(self, other):
         if isinstance(other, self.__class__):
             return self.content == other.content

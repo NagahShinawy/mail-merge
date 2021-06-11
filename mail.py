@@ -7,10 +7,10 @@ NOTIFICATION = "MAIL SENT TO '{name}'"
 
 
 class Mail:
-    def __init__(self, recipient, content, saved_to):
+    def __init__(self, recipient, content, save_to):
         self.recipient = recipient
         self.content = content
-        self.saved_to = saved_to
+        self.saved_to = save_to
 
     def send(self):
         mailpath = os.path.join(self.saved_to, f"letter_for_{self.recipient}.txt")
