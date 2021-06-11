@@ -11,10 +11,10 @@ SENDING_MAIL_PATH = "./output/readyToSend"
 PLACEHOLDER = "[name]"
 
 if __name__ == "__main__":
-    namesf = File(path=NAMES_PATH)
-    mailtemplate = File(path=LETTER_PATH).content
+    recipients = File(path=NAMES_PATH)
+    letter = File(path=LETTER_PATH).content
 
-    for name in namesf:
-        body = mailtemplate.replace(PLACEHOLDER, name)
-        mail = Mail(recipient=name, content=body, saved_to=SENDING_MAIL_PATH)
+    for recipient in recipients:
+        body = letter.replace(PLACEHOLDER, recipient)
+        mail = Mail(recipient=recipient, content=body, saved_to=SENDING_MAIL_PATH)
         mail.send()

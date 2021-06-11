@@ -13,6 +13,13 @@ class File:
     def __getitem__(self, item):
         return self.lines[item]
 
+    def __eq__(self, other):
+        if isinstance(other, self.__class__):
+            return self.content == other.content
+        if isinstance(other, str):
+            return self.content == other
+        self.raise_error(other)
+
     def __gt__(self, other):
         if isinstance(other, self.__class__):
             return self.content > other.content
@@ -41,7 +48,9 @@ class File:
         self.raise_error(other)
 
     def raise_error(self, other):
-        raise TypeError(f"can not compare '{self.__class__.__name__}' to '{other.__class__.__name__}'")
+        raise TypeError(
+            f"can not compare '{self.__class__.__name__}' to '{other.__class__.__name__}'"
+        )
 
     @property
     def content(self):
